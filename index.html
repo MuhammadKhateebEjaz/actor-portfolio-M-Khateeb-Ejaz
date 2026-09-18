@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +24,10 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- AOS Animation -->
+    <!-- AOS -->
     <link
-        href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-        rel="stylesheet">
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
@@ -36,9 +35,7 @@
 
 <body>
 
-    <!-- =========================
-         PRELOADER
-    ========================== -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <div class="loader-content">
             <span>MKE</span>
@@ -48,9 +45,7 @@
     </div>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+    <!-- HEADER -->
     <header class="header">
 
         <nav class="navbar container">
@@ -72,8 +67,14 @@
 
             </div>
 
-            <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open Menu">
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
 
         </nav>
@@ -83,9 +84,7 @@
 
     <main>
 
-        <!-- =========================
-             HERO SECTION
-        ========================== -->
+        <!-- HERO -->
         <section class="hero" id="home">
 
             <div class="hero-overlay"></div>
@@ -101,13 +100,21 @@
                     <span>KHATEEB EJAZ</span>
                 </h1>
 
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+                <p
+                    class="hero-description"
+                    data-aos="fade-up"
+                    data-aos-delay="300">
+
                     Aspiring Actor & Content Creator
                     <br>
                     Passion • Performance • Storytelling
+
                 </p>
 
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="450">
+                <div
+                    class="hero-buttons"
+                    data-aos="fade-up"
+                    data-aos-delay="450">
 
                     <a href="#projects" class="btn btn-primary">
                         Explore My Work
@@ -121,8 +128,11 @@
                 </div>
 
                 <div class="hero-scroll">
+
                     <span>SCROLL TO EXPLORE</span>
+
                     <i class="fa-solid fa-arrow-down"></i>
+
                 </div>
 
             </div>
@@ -130,9 +140,7 @@
         </section>
 
 
-        <!-- =========================
-             ABOUT SECTION
-        ========================== -->
+        <!-- ABOUT -->
         <section class="about section" id="about">
 
             <div class="container">
@@ -157,7 +165,13 @@
 
                             <img
                                 src="assets/profile.jpg"
-                                alt="Muhammad Khateeb Ejaz">
+                                alt="Muhammad Khateeb Ejaz"
+                                onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
+
+                            <div class="image-placeholder">
+                                <i class="fa-solid fa-user"></i>
+                                <span>PROFILE PHOTO</span>
+                            </div>
 
                         </div>
 
@@ -167,22 +181,29 @@
                     <div class="about-content" data-aos="fade-left">
 
                         <p class="about-intro">
-                            I am <strong>Muhammad Khateeb Ejaz</strong>,
+
+                            I am
+                            <strong>Muhammad Khateeb Ejaz</strong>,
                             an aspiring actor and content creator from Karachi,
                             Pakistan.
+
                         </p>
 
                         <p>
+
                             I have a passion for acting, storytelling,
                             cinematic performances and creating engaging
                             digital content. I enjoy exploring different
                             characters, emotions and styles of performance.
+
                         </p>
 
                         <p>
+
                             My journey is focused on continuous learning,
                             improving my performance and building meaningful
                             work in the Pakistan film and television industry.
+
                         </p>
 
                         <div class="about-signature">
@@ -198,9 +219,7 @@
         </section>
 
 
-        <!-- =========================
-             PROFILE SECTION
-        ========================== -->
+        <!-- PROFILE -->
         <section class="profile section" id="profile">
 
             <div class="container">
@@ -219,32 +238,32 @@
 
                 <div class="profile-grid">
 
-                    <div class="profile-card" data-aos="fade-up">
+                    <div class="profile-card">
                         <span>FULL NAME</span>
                         <strong>Muhammad Khateeb Ejaz</strong>
                     </div>
 
-                    <div class="profile-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="profile-card">
                         <span>NATIONALITY</span>
                         <strong>Pakistani</strong>
                     </div>
 
-                    <div class="profile-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="profile-card">
                         <span>LOCATION</span>
                         <strong>Karachi, Pakistan</strong>
                     </div>
 
-                    <div class="profile-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="profile-card">
                         <span>LANGUAGES</span>
                         <strong>Urdu • English • Sindhi</strong>
                     </div>
 
-                    <div class="profile-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="profile-card">
                         <span>PROFESSION</span>
                         <strong>Aspiring Actor & Content Creator</strong>
                     </div>
 
-                    <div class="profile-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="profile-card">
                         <span>DATE OF BIRTH</span>
                         <strong>Available on Request</strong>
                     </div>
@@ -256,9 +275,7 @@
         </section>
 
 
-        <!-- =========================
-             SKILLS SECTION
-        ========================== -->
+        <!-- SKILLS -->
         <section class="skills section" id="skills">
 
             <div class="container">
@@ -277,46 +294,60 @@
 
                 <div class="skills-grid">
 
-                    <div class="skill-card" data-aos="fade-up">
+                    <div class="skill-card">
                         <i class="fa-solid fa-heart"></i>
                         <h3>Emotional Performance</h3>
-                        <p>Expressing emotions naturally through performance.</p>
+                        <p>
+                            Expressing emotions naturally through performance.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
                         <i class="fa-solid fa-masks-theater"></i>
                         <h3>Dramatic Scenes</h3>
-                        <p>Exploring dramatic characters and situations.</p>
+                        <p>
+                            Exploring dramatic characters and situations.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
                         <i class="fa-solid fa-microphone"></i>
                         <h3>Dialogue Delivery</h3>
-                        <p>Confident and expressive dialogue performance.</p>
+                        <p>
+                            Confident and expressive dialogue performance.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
                         <i class="fa-solid fa-hand-fist"></i>
                         <h3>Action Scenes</h3>
-                        <p>Performing energetic action-oriented scenes.</p>
+                        <p>
+                            Performing energetic action-oriented scenes.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-card">
                         <i class="fa-solid fa-camera"></i>
                         <h3>Camera Confidence</h3>
-                        <p>Comfortable performing directly for the camera.</p>
+                        <p>
+                            Comfortable performing directly for the camera.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-card">
                         <i class="fa-solid fa-star"></i>
                         <h3>Screen Presence</h3>
-                        <p>Building a strong and engaging on-screen presence.</p>
+                        <p>
+                            Building a strong and engaging on-screen presence.
+                        </p>
                     </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-card">
                         <i class="fa-solid fa-mobile-screen-button"></i>
                         <h3>Content Creation</h3>
-                        <p>Creating short-form social media content and reels.</p>
+                        <p>
+                            Creating short-form social media content and reels.
+                        </p>
                     </div>
 
                 </div>
@@ -326,9 +357,7 @@
         </section>
 
 
-        <!-- =========================
-             PHOTO GALLERY
-        ========================== -->
+        <!-- GALLERY -->
         <section class="gallery section" id="gallery">
 
             <div class="container">
@@ -352,52 +381,87 @@
 
                 <div class="gallery-grid">
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-01.jpg" alt="Khateeb Ejaz Look 01">
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-01.jpg"
+                            alt="Khateeb Ejaz Look 01">
+
                         <div class="gallery-caption">
                             <span>LOOK 01</span>
                             <h3>Portrait</h3>
                         </div>
+
                     </div>
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-02.jpg" alt="Khateeb Ejaz Look 02">
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-02.jpg"
+                            alt="Khateeb Ejaz Look 02">
+
                         <div class="gallery-caption">
                             <span>LOOK 02</span>
                             <h3>Expression</h3>
                         </div>
+
                     </div>
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-03.jpg" alt="Khateeb Ejaz Look 03">
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-03.jpg"
+                            alt="Khateeb Ejaz Look 03">
+
                         <div class="gallery-caption">
                             <span>LOOK 03</span>
                             <h3>Cinematic</h3>
                         </div>
+
                     </div>
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-04.jpg" alt="Khateeb Ejaz Look 04">
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-04.jpg"
+                            alt="Khateeb Ejaz Look 04">
+
                         <div class="gallery-caption">
                             <span>LOOK 04</span>
                             <h3>Classic</h3>
                         </div>
+
                     </div>
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-05.jpg" alt="Khateeb Ejaz Look 05">
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-05.jpg"
+                            alt="Khateeb Ejaz Look 05">
+
                         <div class="gallery-caption">
                             <span>LOOK 05</span>
                             <h3>Dramatic</h3>
                         </div>
+
                     </div>
 
-                    <div class="gallery-item" data-aos="zoom-in">
-                        <img src="assets/gallery/photo-06.jpg" alt="Khateeb Ejaz Look 06">
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="assets/gallery/photo-06.jpg"
+                            alt="Khateeb Ejaz Look 06">
+
                         <div class="gallery-caption">
                             <span>LOOK 06</span>
                             <h3>Casual</h3>
                         </div>
+
                     </div>
 
                 </div>
@@ -407,9 +471,7 @@
         </section>
 
 
-        <!-- =========================
-             PROJECTS
-        ========================== -->
+        <!-- PROJECTS -->
         <section class="projects section" id="projects">
 
             <div class="container">
@@ -428,79 +490,123 @@
 
                 <div class="projects-grid">
 
-                    <article class="project-card" data-aos="fade-up">
+                    <article class="project-card">
 
                         <div class="project-image">
+
                             <img
                                 src="assets/projects/project-01.jpg"
                                 alt="Bollywood Dialogue Performance">
+
+                            <div class="project-placeholder">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+
                         </div>
 
                         <div class="project-info">
+
                             <span>ACTING PERFORMANCE</span>
-                            <h3>Bollywood Dialogue Performances</h3>
+
+                            <h3>
+                                Bollywood Dialogue Performances
+                            </h3>
+
                             <p>
                                 Dialogue performances inspired by memorable
                                 Bollywood characters and scenes.
                             </p>
+
                         </div>
 
                     </article>
 
 
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="150">
+                    <article class="project-card">
 
                         <div class="project-image">
+
                             <img
                                 src="assets/projects/project-02.jpg"
                                 alt="Pakistani Drama Scene Reaction">
+
+                            <div class="project-placeholder">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+
                         </div>
 
                         <div class="project-info">
+
                             <span>CONTENT CREATION</span>
-                            <h3>Pakistani Drama Scene Reactions</h3>
+
+                            <h3>
+                                Pakistani Drama Scene Reactions
+                            </h3>
+
                             <p>
                                 Reaction-based content featuring Pakistani
                                 drama scenes and performances.
                             </p>
+
                         </div>
 
                     </article>
 
 
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <article class="project-card">
 
                         <div class="project-image">
+
                             <img
                                 src="assets/projects/project-03.jpg"
                                 alt="Acting Reels">
+
+                            <div class="project-placeholder">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+
                         </div>
 
                         <div class="project-info">
+
                             <span>SHORT FORM</span>
-                            <h3>Acting Reels & Short Videos</h3>
+
+                            <h3>
+                                Acting Reels & Short Videos
+                            </h3>
+
                             <p>
                                 Short cinematic performances and social media
                                 video projects.
                             </p>
+
                         </div>
 
                     </article>
 
 
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="450">
+                    <article class="project-card">
 
-                        <div class="project-image project-placeholder">
+                        <div class="project-image project-placeholder-only">
+
                             <i class="fa-solid fa-film"></i>
+
                         </div>
 
                         <div class="project-info">
+
                             <span>ONGOING JOURNEY</span>
-                            <h3>Learning & Improvement</h3>
+
+                            <h3>
+                                Learning & Improvement
+                            </h3>
+
                             <p>
                                 Continuously learning, practicing and improving
                                 acting and content creation skills.
                             </p>
+
                         </div>
 
                     </article>
@@ -512,14 +618,14 @@
         </section>
 
 
-        <!-- =========================
-             DREAM SECTION
-        ========================== -->
+        <!-- DREAM -->
         <section class="dream section" id="dream">
 
             <div class="dream-overlay"></div>
 
-            <div class="container dream-content" data-aos="fade-up">
+            <div
+                class="container dream-content"
+                data-aos="fade-up">
 
                 <span>06 / MY DREAM</span>
 
@@ -551,9 +657,7 @@
         </section>
 
 
-        <!-- =========================
-             CONTACT
-        ========================== -->
+        <!-- CONTACT -->
         <section class="contact section" id="contact">
 
             <div class="container">
@@ -572,7 +676,7 @@
 
                 <div class="contact-grid">
 
-                    <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-info">
 
                         <h3>Get In Touch</h3>
 
@@ -583,63 +687,83 @@
                         </p>
 
                         <div class="contact-item">
+
                             <i class="fa-solid fa-envelope"></i>
+
                             <div>
+
                                 <span>EMAIL</span>
+
                                 <a href="mailto:your@email.com">
                                     your@email.com
                                 </a>
+
                             </div>
+
                         </div>
 
+
                         <div class="contact-item">
+
                             <i class="fa-solid fa-phone"></i>
+
                             <div>
+
                                 <span>PHONE</span>
+
                                 <a href="tel:+923000000000">
                                     +92 XXX XXXXXXX
                                 </a>
+
                             </div>
+
                         </div>
 
+
                         <div class="contact-item">
+
                             <i class="fa-solid fa-location-dot"></i>
+
                             <div>
+
                                 <span>LOCATION</span>
+
                                 <p>Karachi, Pakistan</p>
+
                             </div>
+
                         </div>
 
                     </div>
 
 
-                    <div class="social-box" data-aos="fade-left">
+                    <div class="social-box">
 
                         <h3>Follow My Journey</h3>
 
                         <div class="social-links">
 
-                            <a href="#" target="_blank" aria-label="Instagram">
+                            <a href="#" target="_blank">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Instagram</span>
                             </a>
 
-                            <a href="#" target="_blank" aria-label="TikTok">
+                            <a href="#" target="_blank">
                                 <i class="fa-brands fa-tiktok"></i>
                                 <span>TikTok</span>
                             </a>
 
-                            <a href="#" target="_blank" aria-label="YouTube">
+                            <a href="#" target="_blank">
                                 <i class="fa-brands fa-youtube"></i>
                                 <span>YouTube</span>
                             </a>
 
-                            <a href="#" target="_blank" aria-label="Facebook">
+                            <a href="#" target="_blank">
                                 <i class="fa-brands fa-facebook-f"></i>
                                 <span>Facebook</span>
                             </a>
 
-                            <a href="#" target="_blank" aria-label="X">
+                            <a href="#" target="_blank">
                                 <i class="fa-brands fa-x-twitter"></i>
                                 <span>X / Twitter</span>
                             </a>
@@ -657,9 +781,7 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
     <footer class="footer">
 
         <div class="container">
@@ -672,7 +794,9 @@
                         M<span>K</span>E
                     </a>
 
-                    <h3>MUHAMMAD KHATEEB EJAZ</h3>
+                    <h3>
+                        MUHAMMAD KHATEEB EJAZ
+                    </h3>
 
                     <p>
                         Actor • Model • Content Creator
@@ -683,23 +807,23 @@
 
                 <div class="footer-social">
 
-                    <a href="#" target="_blank" aria-label="Instagram">
+                    <a href="#" target="_blank">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
 
-                    <a href="#" target="_blank" aria-label="TikTok">
+                    <a href="#" target="_blank">
                         <i class="fa-brands fa-tiktok"></i>
                     </a>
 
-                    <a href="#" target="_blank" aria-label="YouTube">
+                    <a href="#" target="_blank">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
 
-                    <a href="#" target="_blank" aria-label="Facebook">
+                    <a href="#" target="_blank">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
 
-                    <a href="#" target="_blank" aria-label="X">
+                    <a href="#" target="_blank">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
 
@@ -726,18 +850,24 @@
     </footer>
 
 
-    <!-- Back To Top -->
-    <button id="backToTop" aria-label="Back to top">
+    <!-- BACK TO TOP -->
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Back to top">
+
         <i class="fa-solid fa-arrow-up"></i>
+
     </button>
 
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS JS -->
+    <script
+        src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
 
-    <!-- Main JavaScript -->
+    <!-- Main JS -->
     <script src="script.js"></script>
 
 </body>
 </html>
-```
