@@ -1,27 +1,24 @@
-```javascript
 /* =========================================
    MUHAMMAD KHATEEB EJAZ
-   ACTOR PORTFOLIO — JAVASCRIPT
+   ACTOR PORTFOLIO
+   CLEAN JAVASCRIPT
 ========================================= */
 
-
-/* =========================================
-   DOM READY
-========================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
-       AOS INITIALIZATION
+       AOS
     ========================================= */
 
     if (typeof AOS !== "undefined") {
+
         AOS.init({
             duration: 900,
             easing: "ease-out-cubic",
             once: true,
             offset: 80
         });
+
     }
 
 
@@ -29,27 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
        PRELOADER
     ========================================= */
 
-    function hidePreloader() {
+    const preloader = document.getElementById("preloader");
 
-        const preloader = document.getElementById("preloader");
+    const hidePreloader = () => {
 
         if (!preloader) return;
 
         preloader.classList.add("hide");
 
-        // Completely remove after animation
-        setTimeout(function () {
-            preloader.style.display = "none";
-        }, 900);
-    }
+        setTimeout(() => {
 
-    // Normal loading
-    window.addEventListener("load", function () {
-        setTimeout(hidePreloader, 500);
+            if (preloader) {
+                preloader.style.display = "none";
+            }
+
+        }, 700);
+
+    };
+
+
+    window.addEventListener("load", () => {
+
+        setTimeout(hidePreloader, 400);
+
     });
 
-    // Safety fallback — never stay stuck
-    setTimeout(hidePreloader, 2500);
+
+    // Safety fallback
+    setTimeout(hidePreloader, 2200);
 
 
     /* =========================================
@@ -59,44 +63,59 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.getElementById("menuBtn");
     const navMenu = document.getElementById("navMenu");
 
+
     if (menuBtn && navMenu) {
 
-        menuBtn.addEventListener("click", function () {
+        menuBtn.addEventListener("click", () => {
 
             navMenu.classList.toggle("active");
 
             const icon = menuBtn.querySelector("i");
 
-            if (icon) {
+            if (!icon) return;
 
-                if (navMenu.classList.contains("active")) {
-                    icon.classList.remove("fa-bars");
-                    icon.classList.add("fa-xmark");
-                } else {
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
-                }
+
+            if (navMenu.classList.contains("active")) {
+
+                icon.classList.remove("fa-bars");
+
+                icon.classList.add("fa-xmark");
+
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Close Menu"
+                );
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Open Menu"
+                );
 
             }
 
         });
 
 
-        /* Close mobile menu after clicking link */
+        navMenu.querySelectorAll("a").forEach(link => {
 
-        const navLinks = navMenu.querySelectorAll("a");
-
-        navLinks.forEach(function (link) {
-
-            link.addEventListener("click", function () {
+            link.addEventListener("click", () => {
 
                 navMenu.classList.remove("active");
 
                 const icon = menuBtn.querySelector("i");
 
                 if (icon) {
+
                     icon.classList.remove("fa-xmark");
+
                     icon.classList.add("fa-bars");
+
                 }
 
             });
@@ -107,54 +126,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================
-       HEADER SCROLL EFFECT
+       HEADER SCROLL
     ========================================= */
 
     const header = document.querySelector(".header");
 
-    function handleHeaderScroll() {
+
+    const handleHeader = () => {
 
         if (!header) return;
 
         if (window.scrollY > 60) {
+
             header.classList.add("scrolled");
+
         } else {
+
             header.classList.remove("scrolled");
+
         }
 
-    }
+    };
 
-    window.addEventListener("scroll", handleHeaderScroll);
 
-    handleHeaderScroll();
+    window.addEventListener("scroll", handleHeader);
+
+    handleHeader();
 
 
     /* =========================================
        BACK TO TOP
     ========================================= */
 
-    const backToTop = document.getElementById("backToTop");
+    const backToTop =
+        document.getElementById("backToTop");
 
-    function handleBackToTop() {
+
+    const handleBackToTop = () => {
 
         if (!backToTop) return;
 
         if (window.scrollY > 600) {
+
             backToTop.classList.add("show");
+
         } else {
+
             backToTop.classList.remove("show");
+
         }
 
-    }
+    };
 
-    window.addEventListener("scroll", handleBackToTop);
+
+    window.addEventListener(
+        "scroll",
+        handleBackToTop
+    );
 
     handleBackToTop();
 
 
     if (backToTop) {
 
-        backToTop.addEventListener("click", function () {
+        backToTop.addEventListener("click", () => {
 
             window.scrollTo({
                 top: 0,
@@ -167,72 +202,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================
-       ACTIVE NAVIGATION
+       SMOOTH NAVIGATION
     ========================================= */
 
-    const sections = document.querySelectorAll("section[id]");
-    const navigationLinks = document.querySelectorAll(".nav-menu a");
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(anchor => {
 
-    function updateActiveNavigation() {
+        anchor.addEventListener("click", event => {
 
-        let currentSection = "";
-
-        sections.forEach(function (section) {
-
-            const sectionTop = section.offsetTop - 180;
-            const sectionHeight = section.offsetHeight;
+            const targetId =
+                anchor.getAttribute("href");
 
             if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
+                !targetId ||
+                targetId === "#"
             ) {
-                currentSection = section.getAttribute("id");
+                return;
             }
 
-        });
+
+            const target =
+                document.querySelector(targetId);
 
 
-        navigationLinks.forEach(function (link) {
-
-            link.classList.remove("active");
-
-            if (
-                currentSection &&
-                link.getAttribute("href") === "#" + currentSection
-            ) {
-                link.classList.add("active");
+            if (!target) {
+                return;
             }
 
-        });
-
-    }
-
-    window.addEventListener("scroll", updateActiveNavigation);
-
-    updateActiveNavigation();
-
-
-    /* =========================================
-       SMOOTH ANCHOR SCROLL
-    ========================================= */
-
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-
-        anchor.addEventListener("click", function (event) {
-
-            const targetId = this.getAttribute("href");
-
-            if (!targetId || targetId === "#") return;
-
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
 
             event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+
+            const headerHeight =
+                header
+                    ? header.offsetHeight
+                    : 0;
+
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight;
+
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
             });
 
         });
@@ -241,29 +257,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================
-       IMAGE FALLBACK
+       ACTIVE NAV
     ========================================= */
 
-    document.querySelectorAll("img").forEach(function (image) {
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
 
-        function showImageFallback() {
+    const navigationLinks =
+        document.querySelectorAll(
+            ".nav-menu a"
+        );
 
-            image.style.display = "none";
 
-            const parent = image.parentElement;
+    const updateActiveNavigation = () => {
 
-            if (parent) {
-                parent.classList.add("image-missing");
+        let currentSection = "";
+
+
+        sections.forEach(section => {
+
+            const top =
+                section.offsetTop - 200;
+
+            const bottom =
+                top + section.offsetHeight;
+
+
+            if (
+                window.scrollY >= top &&
+                window.scrollY < bottom
+            ) {
+
+                currentSection =
+                    section.id;
+
             }
 
-        }
+        });
 
-        image.addEventListener("error", showImageFallback);
 
-        // Check already broken images
-        if (image.complete && image.naturalWidth === 0) {
-            showImageFallback();
-        }
+        navigationLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+
+            if (
+                currentSection &&
+                link.getAttribute("href") ===
+                `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    };
+
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation
+    );
+
+    updateActiveNavigation();
+
+
+    /* =========================================
+       IMAGE ERROR HANDLING
+    ========================================= */
+
+    document.querySelectorAll("img").forEach(image => {
+
+        image.addEventListener("error", () => {
+
+            image.classList.add("image-error");
+
+            const parent =
+                image.parentElement;
+
+
+            if (parent) {
+
+                parent.classList.add(
+                    "image-missing"
+                );
+
+            }
+
+        });
 
     });
 
@@ -272,79 +357,153 @@ document.addEventListener("DOMContentLoaded", function () {
        GALLERY LIGHTBOX
     ========================================= */
 
-    const galleryItems = document.querySelectorAll(".gallery-item");
+    const galleryItems =
+        document.querySelectorAll(
+            ".gallery-item"
+        );
 
-    galleryItems.forEach(function (item) {
 
-        item.addEventListener("click", function () {
+    galleryItems.forEach(item => {
 
-            const image = item.querySelector("img");
+        item.addEventListener("click", () => {
+
+            const image =
+                item.querySelector("img");
+
 
             if (!image) return;
 
-            // Don't open missing images
+
             if (
-                image.style.display === "none" ||
-                !image.src ||
-                image.naturalWidth === 0
+                image.classList.contains(
+                    "image-error"
+                )
             ) {
                 return;
             }
 
 
-            /* Create lightbox */
-
-            const lightbox = document.createElement("div");
-
-            lightbox.className = "lightbox";
-
-            lightbox.innerHTML = `
-                <button class="lightbox-close" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <img src="${image.src}" alt="${image.alt || "Gallery Image"}">
-            `;
-
-
-            document.body.appendChild(lightbox);
-
-
-            /* Animate lightbox */
-
-            requestAnimationFrame(function () {
-                lightbox.classList.add("active");
-            });
-
-
-            /* Close button */
-
-            const closeButton =
-                lightbox.querySelector(".lightbox-close");
-
-            if (closeButton) {
-
-                closeButton.addEventListener("click", function () {
-                    closeLightbox(lightbox);
-                });
-
+            if (!image.complete) {
+                return;
             }
 
 
-            /* Click outside image */
+            if (image.naturalWidth === 0) {
+                return;
+            }
 
-            lightbox.addEventListener("click", function (event) {
 
-                if (event.target === lightbox) {
-                    closeLightbox(lightbox);
-                }
+            const lightbox =
+                document.createElement("div");
+
+
+            lightbox.className =
+                "lightbox";
+
+
+            const closeButton =
+                document.createElement("button");
+
+
+            closeButton.className =
+                "lightbox-close";
+
+
+            closeButton.type = "button";
+
+
+            closeButton.innerHTML =
+                '<i class="fa-solid fa-xmark"></i>';
+
+
+            closeButton.setAttribute(
+                "aria-label",
+                "Close"
+            );
+
+
+            const lightboxImage =
+                document.createElement("img");
+
+
+            lightboxImage.src =
+                image.currentSrc ||
+                image.src;
+
+
+            lightboxImage.alt =
+                image.alt ||
+                "Gallery Image";
+
+
+            lightbox.appendChild(
+                closeButton
+            );
+
+            lightbox.appendChild(
+                lightboxImage
+            );
+
+
+            document.body.appendChild(
+                lightbox
+            );
+
+
+            requestAnimationFrame(() => {
+
+                lightbox.classList.add(
+                    "active"
+                );
 
             });
 
 
-            /* Prevent body scrolling */
+            document.body.style.overflow =
+                "hidden";
 
-            document.body.style.overflow = "hidden";
+
+            const closeLightbox = () => {
+
+                lightbox.classList.remove(
+                    "active"
+                );
+
+                document.body.style.overflow =
+                    "";
+
+                setTimeout(() => {
+
+                    if (lightbox.parentElement) {
+                        lightbox.remove();
+                    }
+
+                }, 400);
+
+            };
+
+
+            closeButton.addEventListener(
+                "click",
+                closeLightbox
+            );
+
+
+            lightbox.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target ===
+                        lightbox
+                    ) {
+
+                        closeLightbox();
+
+                    }
+
+                }
+            );
 
         });
 
@@ -352,73 +511,96 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================
-       CLOSE LIGHTBOX
+       ESCAPE LIGHTBOX
     ========================================= */
 
-    function closeLightbox(lightbox) {
+    document.addEventListener(
+        "keydown",
+        event => {
 
-        if (!lightbox) return;
-
-        lightbox.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-        setTimeout(function () {
-
-            if (lightbox.parentElement) {
-                lightbox.remove();
+            if (event.key !== "Escape") {
+                return;
             }
 
-        }, 400);
-
-    }
-
-
-    /* =========================================
-       ESCAPE KEY — LIGHTBOX
-    ========================================= */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
 
             const lightbox =
-                document.querySelector(".lightbox");
+                document.querySelector(
+                    ".lightbox"
+                );
+
 
             if (lightbox) {
-                closeLightbox(lightbox);
+
+                lightbox.classList.remove(
+                    "active"
+                );
+
+                document.body.style.overflow =
+                    "";
+
+                setTimeout(() => {
+
+                    lightbox.remove();
+
+                }, 400);
+
             }
 
         }
-
-    });
+    );
 
 
     /* =========================================
-       CINEMATIC CURSOR GLOW
+       CURSOR GLOW
     ========================================= */
 
-    if (window.innerWidth > 768) {
+    if (
+        window.innerWidth > 768 &&
+        window.matchMedia(
+            "(pointer: fine)"
+        ).matches
+    ) {
 
-        const cursorGlow = document.createElement("div");
-
-        cursorGlow.className = "cursor-glow";
-
-        document.body.appendChild(cursorGlow);
+        const cursorGlow =
+            document.createElement("div");
 
 
-        document.addEventListener("mousemove", function (event) {
+        cursorGlow.className =
+            "cursor-glow";
 
-            cursorGlow.style.left = event.clientX + "px";
-            cursorGlow.style.top = event.clientY + "px";
 
-        });
+        document.body.appendChild(
+            cursorGlow
+        );
+
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                mouseX = event.clientX;
+                mouseY = event.clientY;
+
+
+                cursorGlow.style.left =
+                    `${mouseX}px`;
+
+
+                cursorGlow.style.top =
+                    `${mouseY}px`;
+
+            }
+        );
 
     }
 
 
     /* =========================================
-       CONSOLE BRANDING
+       CONSOLE
     ========================================= */
 
     console.log(
@@ -432,33 +614,3 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
-
-
-/* =========================================
-   EXTRA PRELOADER SAFETY
-   ========================================= */
-
-// If something goes wrong anywhere else,
-// make sure the website never stays stuck
-// on the loading screen.
-
-window.addEventListener("load", function () {
-
-    const preloader = document.getElementById("preloader");
-
-    if (preloader) {
-
-        setTimeout(function () {
-
-            preloader.classList.add("hide");
-
-            setTimeout(function () {
-                preloader.style.display = "none";
-            }, 900);
-
-        }, 600);
-
-    }
-
-});
-```
