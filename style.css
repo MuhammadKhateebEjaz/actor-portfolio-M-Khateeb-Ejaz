@@ -1603,3 +1603,32 @@ button {
         height: 100px;
     }
 }
+
+
+/* PRELOADER NAME & ROLE */
+.loader-name {
+    display: block;
+    color: var(--gold-light);
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 22px 0 10px;
+    text-align: center;
+}
+
+.loader-role {
+    display: block;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.loader-status {
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
