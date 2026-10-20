@@ -1519,3 +1519,87 @@ button {
         font-size: 3rem;
     }
 }
+
+
+/* =========================================
+   PROFILE PHOTO BRANDING
+   Header, Preloader & Footer
+========================================= */
+
+/* Header and Footer Logo */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.brand-photo {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(214, 179, 106, 0.18);
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.logo:hover .brand-photo {
+    transform: scale(1.08);
+    box-shadow: 0 0 22px rgba(214, 179, 106, 0.4);
+}
+
+/* Loading Screen Photo */
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-photo {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    padding: 4px;
+    background: #050505;
+    box-shadow: 0 0 35px rgba(214, 179, 106, 0.22);
+    animation: profilePulse 1.8s ease-in-out infinite;
+}
+
+.loader-content .loader-line {
+    width: 150px;
+    margin: 22px auto 15px;
+}
+
+/* Subtle Loading Animation */
+@keyframes profilePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(214, 179, 106, 0.15);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 35px rgba(214, 179, 106, 0.35);
+    }
+}
+
+/* Mobile Logo */
+@media (max-width: 400px) {
+    .brand-photo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .loader-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
