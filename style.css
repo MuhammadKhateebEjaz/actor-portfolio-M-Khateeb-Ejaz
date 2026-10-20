@@ -1649,3 +1649,112 @@ button {
     text-align: center;
 }
 
+
+/* =========================================
+   FINAL NAVBAR LAYOUT FIX
+   Logo Left | Menu Right
+========================================= */
+
+.header .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 20px;
+    min-height: 85px;
+}
+
+.header .logo {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 1 auto;
+    gap: 10px;
+    min-width: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.header .brand-photo {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.header .logo-name {
+    display: inline-block;
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+}
+
+.header .nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 22px;
+    flex: 0 0 auto;
+    margin: 0 0 0 auto;
+}
+
+/* TABLET & MOBILE MENU */
+@media (max-width: 1000px) {
+    .header .navbar {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .header .nav-menu {
+        position: fixed;
+        top: 85px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 85px);
+        padding: 40px 30px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 28px;
+        margin: 0;
+        background: rgba(7, 7, 7, 0.98);
+        border-left: 1px solid var(--line);
+        transition: right 0.4s ease;
+        overflow-y: auto;
+    }
+
+    .header .nav-menu.active {
+        right: 0;
+    }
+
+    .header .menu-btn {
+        display: block;
+        flex-shrink: 0;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    .header .logo {
+        gap: 7px;
+    }
+
+    .header .brand-photo {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .header .logo-name {
+        font-size: 10px;
+        letter-spacing: 0.2px;
+    }
+}
